@@ -1,0 +1,341 @@
+.invitation {
+  background: var(--background-color);
+  padding: 80px 0;
+  position: relative;
+}
+
+.invitation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.invitation-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.invitation-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.invitation-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.invitation-title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.invitation-divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.invitation-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.invitation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.card-header {
+  text-align: center;
+  padding: 40px 40px 20px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.couple-names {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.wedding-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.wedding-date i {
+  color: var(--accent-color);
+}
+
+.card-body {
+  padding: 40px;
+}
+
+.invitation-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.wedding-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.detail-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.detail-content h4 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.detail-content p {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.address {
+  font-size: 0.9rem !important;
+  color: #666 !important;
+}
+
+.parents-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 15px;
+}
+
+.parent-group {
+  text-align: center;
+  flex: 1;
+}
+
+.parent-group h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.parent-group p {
+  color: var(--text-color);
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.groom-name,
+.bride-name {
+  font-weight: 600;
+  color: var(--secondary-color) !important;
+  font-size: 1.1rem !important;
+}
+
+.parent-divider {
+  margin: 0 20px;
+  color: var(--accent-color);
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.thank-you-message {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.card-footer {
+  padding: 20px 40px 40px;
+  text-align: center;
+}
+
+.decorative-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.decorative-line {
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.decorative-elements i {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+.rsvp-section {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.rsvp-section p {
+  color: var(--text-color);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.rsvp-btn {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.rsvp-btn i {
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .invitation {
+    padding: 60px 0;
+  }
+
+  .invitation-title {
+    font-size: 2.5rem;
+  }
+
+  .couple-names {
+    font-size: 2rem;
+  }
+
+  .card-header,
+  .card-body {
+    padding: 30px 20px;
+  }
+
+  .wedding-details {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .parents-info {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .parent-divider {
+    margin: 0;
+    transform: rotate(90deg);
+  }
+
+  .rsvp-section {
+    padding: 30px 20px;
+  }
+
+  .rsvp-section h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-title {
+    font-size: 2rem;
+  }
+
+  .couple-names {
+    font-size: 1.5rem;
+  }
+
+  .invitation-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .detail-item {
+    padding: 15px;
+  }
+
+  .detail-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .rsvp-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
