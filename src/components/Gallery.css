@@ -61,7 +61,7 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
@@ -82,7 +82,7 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: 300px; /* Tăng chiều cao để hiển thị ảnh dọc đẹp hơn */
+  height: 'fit-content'; /* Tăng chiều cao để hiển thị ảnh dọc đẹp hơn */
   overflow: hidden;
 }
 
@@ -258,7 +258,7 @@
   }
 
   .image-container {
-    height: 250px; /* Tăng chiều cao cho tablet */
+    height: 'fit-content'; /* Tăng chiều cao cho tablet */
   }
 
   .lightbox-prev {
@@ -296,7 +296,7 @@
   }
 
   .image-container {
-    height: 220px; /* Tăng chiều cao cho mobile */
+    height: 'fit-content'; /* Tăng chiều cao cho mobile */
   }
 
   .lightbox-prev,

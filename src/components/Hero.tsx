@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ComponentProps } from '../types';
+import { ANIMATION_VARIANTS, ICONS, BUTTON_STYLES } from '../constants';
 import './Hero.css';
 
 // Sử dụng đường dẫn trực tiếp từ public folder
@@ -13,29 +14,8 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
     triggerOnce: true
   });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
+  const containerVariants = ANIMATION_VARIANTS.heroContainer;
+  const itemVariants = ANIMATION_VARIANTS.heroItem;
 
   return (
     <section 
@@ -55,13 +35,13 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         <div className="hero-overlay"></div>
         <div className="floating-elements">
           <div className="floating-heart">
-            <i className="fas fa-heart"></i>
+            <i className={ICONS.HEART}></i>
           </div>
           <div className="floating-heart">
-            <i className="fas fa-heart"></i>
+            <i className={ICONS.HEART}></i>
           </div>
           <div className="floating-heart">
-            <i className="fas fa-heart"></i>
+            <i className={ICONS.HEART}></i>
           </div>
         </div>
       </div>
@@ -85,7 +65,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
             className="hero-subtitle"
             variants={itemVariants}
           >
-            <i className="fas fa-calendar-alt"></i>
+            <i className={ICONS.CALENDAR}></i>
             <span>{data.wedding.date}</span>
           </motion.div>
 
@@ -93,7 +73,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
             className="hero-subtitle"
             variants={itemVariants}
           >
-            <i className="fas fa-clock"></i>
+            <i className={ICONS.CLOCK}></i>
             <span>{data.wedding.time}</span>
           </motion.div>
 
@@ -101,7 +81,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
             className="hero-subtitle"
             variants={itemVariants}
           >
-            <i className="fas fa-map-marker-alt"></i>
+            <i className={ICONS.MAP_MARKER}></i>
             <span>{data.wedding.location.name}</span>
           </motion.div>
 
@@ -118,21 +98,21 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
           >
             <motion.a 
               href="#invitation"
-              className="btn btn-primary"
+              className={BUTTON_STYLES.primary}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <i className="fas fa-envelope"></i>
+              <i className={ICONS.ENVELOPE}></i>
               Xem thiệp mời
             </motion.a>
             
             <motion.a 
               href="#gallery"
-              className="btn btn-outline"
+              className={BUTTON_STYLES.outline}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <i className="fas fa-images"></i>
+              <i className={ICONS.IMAGES}></i>
               Khoảnh khắc
             </motion.a>
           </motion.div>
@@ -154,7 +134,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
               }}
             />
             <div className="image-decoration">
-              <i className="fas fa-heart"></i>
+              <i className={ICONS.HEART}></i>
             </div>
           </div>
         </motion.div>
@@ -165,7 +145,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <i className="fas fa-chevron-down"></i>
+        <i className={ICONS.CHEVRON_DOWN}></i>
       </motion.div>
     </section>
   );

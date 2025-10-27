@@ -55,7 +55,7 @@ export const weddingData: WeddingData = {
   // Hình ảnh
   images: {
     mainBackground: "/images/gallery_big.jpg", // Ảnh ngang làm background
-    couplePhoto: "/images/gallery1.jpg", // Ảnh dọc làm ảnh cặp đôi
+    couplePhoto: "/images/gallery_big.jpg", // Ảnh dọc làm ảnh cặp đôi
     gallery: [
       "/images/gallery1.jpg",
       "/images/gallery2.jpg", 
@@ -69,7 +69,7 @@ export const weddingData: WeddingData = {
   },
 
   // Cấu hình template
-  template: "classic" as TemplateType, // classic, modern, romantic..
+  template: TemplateType.CLASSIC, // classic, modern, romantic
   
   // Màu sắc chủ đạo
   colors: {
@@ -83,7 +83,7 @@ export const weddingData: WeddingData = {
 
 // Các template có sẵn
 export const templates: Record<TemplateType, Template> = {
-  classic: {
+  [TemplateType.CLASSIC]: {
     name: "Cổ Điển",
     description: "Phong cách truyền thống, trang nhã",
     colors: {
@@ -94,7 +94,7 @@ export const templates: Record<TemplateType, Template> = {
       background: "#FFF8DC"
     }
   },
-  modern: {
+  [TemplateType.MODERN]: {
     name: "Hiện Đại", 
     description: "Phong cách tối giản, thanh lịch",
     colors: {
@@ -105,7 +105,7 @@ export const templates: Record<TemplateType, Template> = {
       background: "#FAFAFA"
     }
   },
-  romantic: {
+  [TemplateType.ROMANTIC]: {
     name: "Lãng Mạn",
     description: "Phong cách ngọt ngào, lãng mạn",
     colors: {

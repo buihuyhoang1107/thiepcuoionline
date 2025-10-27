@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { TEMPLATE_STYLES } from '../constants';
+import { ComponentProps, TemplateType } from '../types';
+import Confetti from './Confetti';
+import Footer from './Footer';
+import Gallery from './Gallery';
 import Header from './Header';
 import Hero from './Hero';
 import Invitation from './Invitation';
 import QRCode from './QRCode';
-import Gallery from './Gallery';
-import Footer from './Footer';
-import Confetti from './Confetti';
-import { ComponentProps } from '../types';
 import './WeddingInvitation.css';
 
 const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
-  const [currentTemplate, setCurrentTemplate] = useState<string>(data.template || 'classic');
+  const [currentTemplate, setCurrentTemplate] = useState<TemplateType>(data.template as TemplateType);
 
   useEffect(() => {
     // Trigger confetti on page load
@@ -20,34 +21,7 @@ const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
     setTimeout(() => setShowConfetti(false), 3000);
   }, []);
 
-  const templateStyles: Record<string, any> = {
-    classic: {
-      primary: '#D4AF37',
-      secondary: '#8B4513',
-      accent: '#FFD700',
-      text: '#2C2C2C',
-      background: '#FFF8DC',
-      font: 'Playfair Display'
-    },
-    modern: {
-      primary: '#E91E63',
-      secondary: '#9C27B0',
-      accent: '#FF4081',
-      text: '#212121',
-      background: '#FAFAFA',
-      font: 'Poppins'
-    },
-    romantic: {
-      primary: '#FF69B4',
-      secondary: '#FF1493',
-      accent: '#FFB6C1',
-      text: '#4A4A4A',
-      background: '#FFF0F5',
-      font: 'Dancing Script'
-    }
-  };
-
-  const currentStyle = templateStyles[currentTemplate] || templateStyles.classic;
+  const currentStyle = TEMPLATE_STYLES[currentTemplate] || TEMPLATE_STYLES.classic;
 
   return (
     <div 

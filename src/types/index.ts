@@ -89,4 +89,8 @@ export interface QRCodeProps extends ComponentProps {
   onCopy?: (text: string) => void;
 }
 
-export type TemplateType = 'classic' | 'modern' | 'romantic';
+export enum TemplateType {
+  CLASSIC = 'classic',
+  MODERN = 'modern',
+  ROMANTIC = 'romantic'
+}

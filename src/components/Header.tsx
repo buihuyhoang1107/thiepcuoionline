@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ComponentProps } from '../types';
+import { ICONS } from '../constants';
 import './Header.css';
 
 const Header: React.FC<ComponentProps> = ({ data }) => {
@@ -29,25 +30,25 @@ const Header: React.FC<ComponentProps> = ({ data }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <i className="fas fa-heart"></i>
+            <i className={ICONS.HEART}></i>
             <span>Thiệp Cưới</span>
           </motion.div>
           
           <nav className="nav">
             <a href="#home" className="nav-link">
-              <i className="fas fa-home"></i>
+              <i className={ICONS.HOME}></i>
               <span>Trang chủ</span>
             </a>
             <a href="#invitation" className="nav-link">
-              <i className="fas fa-envelope"></i>
+              <i className={ICONS.ENVELOPE}></i>
               <span>Thiệp mời</span>
             </a>
             <a href="#gallery" className="nav-link">
-              <i className="fas fa-images"></i>
+              <i className={ICONS.IMAGES}></i>
               <span>Khoảnh khắc</span>
             </a>
             <a href="#qr" className="nav-link">
-              <i className="fas fa-qrcode"></i>
+              <i className={ICONS.QR_CODE}></i>
               <span>Chuyển khoản</span>
             </a>
           </nav>
@@ -60,7 +61,7 @@ const Header: React.FC<ComponentProps> = ({ data }) => {
               nav?.classList.toggle('active');
             }}
           >
-            <i className="fas fa-bars"></i>
+            <i className={ICONS.BARS}></i>
           </motion.button>
         </div>
       </div>
