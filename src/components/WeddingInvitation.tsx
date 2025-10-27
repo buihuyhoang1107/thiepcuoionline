@@ -59,7 +59,7 @@ const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
         '--text-color': currentStyle.text,
         '--background-color': currentStyle.background,
         '--main-font': currentStyle.font
-      }}
+      } as React.CSSProperties}
     >
       {showConfetti && <Confetti />}
       

@@ -82,7 +82,7 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 300px; /* Tăng chiều cao để hiển thị ảnh dọc đẹp hơn */
   overflow: hidden;
 }
 
@@ -90,6 +90,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Căn giữa ảnh để hiển thị đẹp nhất */
   transition: transform 0.3s ease;
 }
 
@@ -257,7 +258,7 @@
   }
 
   .image-container {
-    height: 200px;
+    height: 250px; /* Tăng chiều cao cho tablet */
   }
 
   .lightbox-prev {
@@ -295,7 +296,7 @@
   }
 
   .image-container {
-    height: 180px;
+    height: 220px; /* Tăng chiều cao cho mobile */
   }
 
   .lightbox-prev,

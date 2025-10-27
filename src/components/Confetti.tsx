@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ConfettiPiece } from '../types';
 import './Confetti.css';
 
-const Confetti = () => {
-  const [confettiPieces, setConfettiPieces] = useState([]);
+const Confetti: React.FC = () => {
+  const [confettiPieces, setConfettiPieces] = useState<ConfettiPiece[]>([]);
 
   useEffect(() => {
-    const pieces = [];
+    const pieces: ConfettiPiece[] = [];
     const colors = ['#FFD700', '#FF69B4', '#87CEEB', '#98FB98', '#DDA0DD', '#F0E68C'];
-    const shapes = ['circle', 'square', 'triangle'];
+    const shapes: ('circle' | 'square' | 'triangle')[] = ['circle', 'square', 'triangle'];
 
     for (let i = 0; i < 50; i++) {
       pieces.push({

@@ -13,7 +13,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/hero-bg.jpg') center/cover no-repeat;
   z-index: 1;
 }
 
@@ -162,8 +161,8 @@
 .image-frame {
   position: relative;
   width: 400px;
-  height: 400px;
-  border-radius: 50%;
+  height: 500px; /* Tăng chiều cao để phù hợp với ảnh dọc */
+  border-radius: 20px; /* Thay đổi từ tròn thành bo góc */
   overflow: hidden;
   border: 8px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -173,6 +172,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top; /* Căn ảnh để hiển thị phần trên của ảnh dọc */
   transition: transform 0.3s ease;
 }
 
@@ -229,7 +229,7 @@
 
   .image-frame {
     width: 300px;
-    height: 300px;
+    height: 375px; /* Tỷ lệ 4:5 cho ảnh dọc */
   }
 }
 
@@ -259,7 +259,7 @@
 
   .image-frame {
     width: 250px;
-    height: 250px;
+    height: 312px; /* Tỷ lệ 4:5 cho ảnh dọc */
   }
 
   .floating-heart {
@@ -294,6 +294,6 @@
 
   .image-frame {
     width: 200px;
-    height: 200px;
+    height: 250px; /* Tỷ lệ 4:5 cho ảnh dọc */
   }
 }

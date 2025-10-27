@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ComponentProps } from '../types';
 import './Header.css';
 
-const Header = ({ data }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const Header: React.FC<ComponentProps> = ({ data }) => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -56,7 +57,7 @@ const Header = ({ data }) => {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               const nav = document.querySelector('.nav');
-              nav.classList.toggle('active');
+              nav?.classList.toggle('active');
             }}
           >
             <i className="fas fa-bars"></i>

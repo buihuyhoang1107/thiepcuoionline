@@ -1,7 +1,7 @@
 // File cấu hình dữ liệu thiệp cưới
 // Thay đổi dữ liệu này để tạo thiệp cưới mới
 
-import { WeddingData, Template, TemplateType } from '../types';
+import { Template, TemplateType, WeddingData } from '../types';
 
 export const weddingData: WeddingData = {
   // Thông tin cặp đôi
@@ -54,20 +54,22 @@ export const weddingData: WeddingData = {
 
   // Hình ảnh
   images: {
-    mainBackground: "/images/background1.jpg",
-    couplePhoto: "/images/couple1.jpg",
+    mainBackground: "/images/gallery_big.jpg", // Ảnh ngang làm background
+    couplePhoto: "/images/gallery1.jpg", // Ảnh dọc làm ảnh cặp đôi
     gallery: [
       "/images/gallery1.jpg",
       "/images/gallery2.jpg", 
       "/images/gallery3.jpg",
       "/images/gallery4.jpg",
       "/images/gallery5.jpg",
-      "/images/gallery6.jpg"
+      "/images/gallery6.jpg",
+      "/images/gallery7.jpg",
+      "/images/gallery8.jpg"
     ]
   },
 
   // Cấu hình template
-  template: "classic" as TemplateType, // classic, modern, romantic
+  template: "classic" as TemplateType, // classic, modern, romantic..
   
   // Màu sắc chủ đạo
   colors: {
