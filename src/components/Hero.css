@@ -182,13 +182,13 @@
 }
 
 .image-frame:hover img {
-  transform: scale(1.1);
+  transform: none; /* tắt zoom để tránh giật */
 }
 
 .image-decoration {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 100px; /* đẩy ra ngoài khung ảnh */
+  right: 30px; /* đẩy ra ngoài khung ảnh */
   width: 60px;
   height: 60px;
   background: var(--accent-color);
@@ -198,7 +198,8 @@
   justify-content: center;
   color: white;
   font-size: 1.5rem;
-  animation: pulse 2s infinite;
+  animation: none; /* tắt animation để tránh giật */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .scroll-indicator {
@@ -220,7 +221,7 @@
 @media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 0px;
     text-align: center;
   }
 
@@ -298,7 +299,7 @@
   }
 
   .image-frame {
-    width: 200px;
-    height: 250px; /* Tỷ lệ 4:5 cho ảnh dọc */
+    width: 250px;
+    height: 300px; /* Tỷ lệ 4:5 cho ảnh dọc */
   }
 }

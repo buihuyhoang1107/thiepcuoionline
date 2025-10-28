@@ -16,6 +16,17 @@ const Header: React.FC<ComponentProps> = ({ data }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (targetId: string, e: React.MouseEvent<HTMLAnchorElement>): void => {
+    e.preventDefault();
+    const nav = document.querySelector('.nav');
+    nav?.classList.remove('active');
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    window.history.replaceState(null, '', `#${targetId}`);
+  };
+
   return (
     <motion.header 
       className={`header ${isScrolled ? 'scrolled' : ''}`}
@@ -35,19 +46,19 @@ const Header: React.FC<ComponentProps> = ({ data }) => {
           </motion.div>
           
           <nav className="nav">
-            <a href="#home" className="nav-link">
+            <a href="#home" className="nav-link" onClick={(e) => handleNavClick('home', e)}>
               <i className={ICONS.HOME}></i>
               <span>Trang chủ</span>
             </a>
-            <a href="#invitation" className="nav-link">
+            <a href="#invitation" className="nav-link" onClick={(e) => handleNavClick('invitation', e)}>
               <i className={ICONS.ENVELOPE}></i>
               <span>Thiệp mời</span>
             </a>
-            <a href="#gallery" className="nav-link">
+            <a href="#gallery" className="nav-link" onClick={(e) => handleNavClick('gallery', e)}>
               <i className={ICONS.IMAGES}></i>
               <span>Khoảnh khắc</span>
             </a>
-            <a href="#qr" className="nav-link">
+            <a href="#qr" className="nav-link" onClick={(e) => handleNavClick('qr', e)}>
               <i className={ICONS.QR_CODE}></i>
               <span>Chuyển khoản</span>
             </a>

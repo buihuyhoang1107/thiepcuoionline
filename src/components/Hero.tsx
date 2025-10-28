@@ -121,10 +121,13 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         <motion.div 
           className="hero-image"
           variants={itemVariants}
-          whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
+            <div className="image-decoration">
+            <i className={ICONS.HEART}></i>
+          </div>
           <div className="image-frame">
+            
             <img 
               src={data.images.couplePhoto || "/images/couple-placeholder.jpg"} 
               alt={`${data.couple.groom.name} & ${data.couple.bride.name}`}
@@ -133,10 +136,8 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
                 target.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjIwMCIgcj0iMTAwIiBmaWxsPSIjREREREREIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5OTk5IiBmb250LXNpemU9IjE0Ij5Db3VwbGUgUGhvdG88L3RleHQ+Cjwvc3ZnPg==";
               }}
             />
-            <div className="image-decoration">
-              <i className={ICONS.HEART}></i>
-            </div>
           </div>
+        
         </motion.div>
       </motion.div>
 
