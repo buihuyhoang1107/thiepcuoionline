@@ -42,29 +42,29 @@ export const weddingData: WeddingData = {
       bank: "Vietcombank",
       accountNumber: "1058569957",
       accountName: "Nguyễn Văn Minh",
-      qrCode:"/images/qr1.jpg"
+      qrCode:"images/qr1.jpg"
     },
     bride: {
       bank: "BIDV", 
       accountNumber: "0987654321",
       accountName: "Trần Thị Lan",
-       qrCode: "/images/qr2.jpg"
+       qrCode: "images/qr2.jpg"
     }
   },
 
   // Hình ảnh
   images: {
-    mainBackground: "/images/gallery_big.jpg", // Ảnh ngang làm background
-    couplePhoto: "/images/gallery_big.jpg", // Ảnh dọc làm ảnh cặp đôi
+    mainBackground: "images/gallery_big.jpg", // Ảnh ngang làm background
+    couplePhoto: "images/gallery_big.jpg", // Ảnh dọc làm ảnh cặp đôi
     gallery: [
-      "/images/gallery1.jpg",
-      "/images/gallery2.jpg", 
-      "/images/gallery3.jpg",
-      "/images/gallery4.jpg",
-      "/images/gallery5.jpg",
-      "/images/gallery6.jpg",
-      "/images/gallery7.jpg",
-      "/images/gallery8.jpg"
+      "images/gallery1.jpg",
+      "images/gallery2.jpg", 
+      "images/gallery3.jpg",
+      "images/gallery4.jpg",
+      "images/gallery5.jpg",
+      "images/gallery6.jpg",
+      "images/gallery7.jpg",
+      "images/gallery8.jpg"
     ]
   },
 
