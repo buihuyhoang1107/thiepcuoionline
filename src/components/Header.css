@@ -101,6 +101,8 @@
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
+  /* Đảm bảo phần nội dung bên dưới không bị che */
+  body { padding-top: 70px; }
   .nav {
     position: fixed;
     top: 70px;

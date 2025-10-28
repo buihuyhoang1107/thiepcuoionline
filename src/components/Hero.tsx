@@ -105,12 +105,11 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         >
           <div className="image-frame">
             <img
-              src={data.images.couplePhoto || "/images/couple-placeholder.jpg"}
+              src={`${process.env.PUBLIC_URL}/${data.images.couplePhoto || 'images/couple-placeholder.jpg'}`}
               alt={`${data.couple.groom.name} & ${data.couple.bride.name}`}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src =
-                  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjIwMCIgcj0iMTAwIiBmaWxsPSIjREREREREIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5OTk5IiBmb250LXNpemU9IjE0Ij5Db3VwbGUgUGhvdG88L3RleHQ+Cjwvc3ZnPg==";
+                target.src = `${process.env.PUBLIC_URL}/images/couple-placeholder.jpg`;
               }}
             />
           </div>

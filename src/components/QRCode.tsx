@@ -10,8 +10,8 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
     triggerOnce: true
   });
 
-  const groomQR = data.banking.groom.qrCode;
-  const brideQR = data.banking.bride.qrCode;
+  const groomQR = `${process.env.PUBLIC_URL}/${data.banking.groom.qrCode}`;
+  const brideQR = `${process.env.PUBLIC_URL}/${data.banking.bride.qrCode}`;
 
   const containerVariants = {
     hidden: { opacity: 0 },

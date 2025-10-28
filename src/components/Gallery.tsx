@@ -13,7 +13,8 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const images = data.images.gallery || [];
+  const toUrl = (p: string) => `${process.env.PUBLIC_URL}/${p}`;
+  const images = (data.images.gallery || []).map(toUrl);
 
   const containerVariants = {
     hidden: { opacity: 0 },
