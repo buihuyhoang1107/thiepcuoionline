@@ -142,23 +142,6 @@ const Invitation: React.FC<ComponentProps> = ({ data }) => {
               </motion.div>
             </div>
           </motion.div>
-
-          {/* RSVP Section */}
-          <motion.div 
-            className="rsvp-section"
-            variants={itemVariants}
-          >
-            <h3>Xác nhận tham dự</h3>
-            <p>Vui lòng xác nhận tham dự để chúng tôi chuẩn bị tốt nhất</p>
-            <motion.button 
-              className="btn btn-primary rsvp-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <i className="fas fa-check-circle"></i>
-              Xác nhận tham dự
-            </motion.button>
-          </motion.div>
         </motion.div>
       </div>
     </section>

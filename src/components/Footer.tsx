@@ -28,7 +28,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
               </p>
               <div className="social-links">
                 <motion.a 
-                  href="#" 
+                  href="https://www.facebook.com/bui.huy.hoang.629229/" 
                   className="social-link"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
@@ -36,7 +36,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
                   <i className="fab fa-facebook-f"></i>
                 </motion.a>
                 <motion.a 
-                  href="#" 
+                  href="https://www.instagram.com/kugayama_shusei/" 
                   className="social-link"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
@@ -84,7 +84,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
               <h4 className="footer-title">Cặp đôi</h4>
               <div className="couple-info">
                 <div className="couple-item">
-                  <i className="fas fa-male"></i>
+                  {/* <i className="fas fa-male"></i> */}
                   <div>
                     <p className="couple-name">{data.couple.groom.fullName}</p>
                     <p className="couple-parent">{data.couple.groom.parent}</p>
@@ -94,7 +94,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
                   <i className="fas fa-heart"></i>
                 </div>
                 <div className="couple-item">
-                  <i className="fas fa-female"></i>
+                  {/* <i className="fas fa-female"></i> */}
                   <div>
                     <p className="couple-name">{data.couple.bride.fullName}</p>
                     <p className="couple-parent">{data.couple.bride.parent}</p>
@@ -108,7 +108,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
               <div className="contact-info">
                 <div className="contact-item">
                   <i className="fas fa-phone"></i>
-                  <span>0123 456 789</span>
+                  <span>0911784363</span>
                 </div>
                 <div className="contact-item">
                   <i className="fas fa-envelope"></i>

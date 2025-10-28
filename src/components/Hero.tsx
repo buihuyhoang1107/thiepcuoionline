@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { ANIMATION_VARIANTS, BUTTON_STYLES, ICONS } from '../constants';
 import { ComponentProps } from '../types';
-import { ANIMATION_VARIANTS, ICONS, BUTTON_STYLES } from '../constants';
 import './Hero.css';
 
 // Sử dụng đường dẫn trực tiếp từ public folder
@@ -102,7 +102,7 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <i className={ICONS.ENVELOPE}></i>
+              <i className={ICONS.ENVELOPE}></i> 
               Xem thiệp mời
             </motion.a>
             
@@ -144,6 +144,15 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         className="scroll-indicator"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        onClick={() => {
+          const el = document.getElementById('invitation');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        role="button"
+        aria-label="Scroll to invitation"
+        tabIndex={0}
       >
         <i className={ICONS.CHEVRON_DOWN}></i>
       </motion.div>

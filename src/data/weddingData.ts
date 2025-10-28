@@ -9,12 +9,12 @@ export const weddingData: WeddingData = {
     groom: {
       name: "Anh Minh",
       fullName: "Nguyễn Văn Minh",
-      parent: "Ông bà Nguyễn Văn A & Nguyễn Thị B"
+      parent: "Ông bà Nguyễn Văn Hoài & Nguyễn Thị Cẩm Lệ"
     },
     bride: {
-      name: "Chị Lan",
+      name: "Chị Nga",
       fullName: "Trần Thị Lan", 
-      parent: "Ông bà Trần Văn C & Trần Thị D"
+      parent: "Ông bà Trần Văn Tuyến & Trần Thị Thúy Vân"
     }
   },
 
@@ -23,8 +23,8 @@ export const weddingData: WeddingData = {
     date: "15.12.2024",
     time: "11:00",
     location: {
-      name: "Nhà hàng ABC",
-      address: "123 Đường ABC, Quận 1, TP.HCM",
+      name: "Nhà hàng Hoàng Gia",
+      address: "123 Đường Hoàng Gia, Quận 1, TP.HCM",
       map: "https://maps.google.com/..."
     }
   },
@@ -40,15 +40,15 @@ export const weddingData: WeddingData = {
   banking: {
     groom: {
       bank: "Vietcombank",
-      accountNumber: "1234567890",
+      accountNumber: "1058569957",
       accountName: "Nguyễn Văn Minh",
-      qrCode: "https://img.vietqr.io/image/VCB-1234567890-compact2.jpg"
+      qrCode:"/images/qr1.jpg"
     },
     bride: {
       bank: "BIDV", 
       accountNumber: "0987654321",
       accountName: "Trần Thị Lan",
-      qrCode: "https://img.vietqr.io/image/BIDV-0987654321-compact2.jpg"
+       qrCode: "/images/qr2.jpg"
     }
   },
 

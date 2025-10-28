@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import QRCodeLib from 'qrcode';
 import { ComponentProps } from '../types';
 import './QRCode.css';
 
@@ -11,43 +10,8 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
     triggerOnce: true
   });
 
-  const [groomQR, setGroomQR] = useState<string>('');
-  const [brideQR, setBrideQR] = useState<string>('');
-
-  React.useEffect(() => {
-    // Generate QR codes for banking info
-    const generateQR = async (): Promise<void> => {
-      try {
-        const groomQRData = `VietQR|${data.banking.groom.bank}|${data.banking.groom.accountNumber}|${data.banking.groom.accountName}`;
-        const brideQRData = `VietQR|${data.banking.bride.bank}|${data.banking.bride.accountNumber}|${data.banking.bride.accountName}`;
-        
-        const groomQRCode = await QRCodeLib.toDataURL(groomQRData, {
-          width: 200,
-          margin: 2,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        });
-        
-        const brideQRCode = await QRCodeLib.toDataURL(brideQRData, {
-          width: 200,
-          margin: 2,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        });
-        
-        setGroomQR(groomQRCode);
-        setBrideQR(brideQRCode);
-      } catch (error) {
-        console.error('Error generating QR codes:', error);
-      }
-    };
-
-    generateQR();
-  }, [data]);
+  const groomQR = data.banking.groom.qrCode;
+  const brideQR = data.banking.bride.qrCode;
 
   const containerVariants = {
     hidden: { opacity: 0 },
