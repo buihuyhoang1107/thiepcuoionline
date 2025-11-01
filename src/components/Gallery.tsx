@@ -138,7 +138,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
               
               <img
                 src={selectedImage}
-                alt="Gallery image"
+                alt="Gallery"
                 className="lightbox-image"
               />
               

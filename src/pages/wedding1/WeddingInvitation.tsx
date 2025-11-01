@@ -13,7 +13,7 @@ import './WeddingInvitation.css';
 
 const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
-  const [currentTemplate, setCurrentTemplate] = useState<TemplateType>(data.template as TemplateType);
+  const [currentTemplate] = useState<TemplateType>(data.template as TemplateType);
 
   useEffect(() => {
     // Trigger confetti on page load
