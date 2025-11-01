@@ -237,6 +237,22 @@
     text-align: center;
   }
 
+  .footer-section {
+    align-items: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-description {
+    text-align: center;
+  }
+
+  .footer-title {
+    text-align: center;
+  }
+
   .footer-bottom-content {
     flex-direction: column;
     text-align: center;
@@ -254,6 +270,15 @@
 
   .couple-item {
     justify-content: center;
+    text-align: center;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
   }
 
   .floating-action-btn {
@@ -270,7 +295,17 @@
     padding: 30px 0 15px;
   }
 
+  .footer-main {
+    text-align: center;
+  }
+
+  .footer-section {
+    align-items: center;
+  }
+
   .footer-logo {
+    justify-content: center;
+    text-align: center;
     font-size: 1.5rem;
   }
 
@@ -278,8 +313,13 @@
     font-size: 1.5rem;
   }
 
+  .footer-description {
+    text-align: center;
+  }
+
   .footer-title {
     font-size: 1.1rem;
+    text-align: center;
   }
 
   .social-links {
@@ -292,9 +332,42 @@
     font-size: 1rem;
   }
 
+  .couple-info {
+    align-items: center;
+  }
+
+  .couple-item {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .couple-name,
+  .couple-parent {
+    text-align: center;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-bottom-content {
+    text-align: center;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
   .footer-links {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .floating-action-btn {

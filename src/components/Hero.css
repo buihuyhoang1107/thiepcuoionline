@@ -80,38 +80,115 @@
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 300;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(45deg, #fff, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 2px;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.4;
+  position: relative;
+  padding-bottom: 15px;
+  font-style: normal;
 }
 
-.hero-subtitle {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  font-weight: 500;
+.hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.4), transparent);
 }
 
-.hero-subtitle i {
-  font-size: 1.5rem;
+.hero-intro {
+  font-size: 1.15rem;
+  line-height: 2;
+  margin-bottom: 35px;
+  opacity: 0.88;
+  font-weight: 300;
+  max-width: 600px;
+  font-style: italic;
+  font-family: 'Playfair Display', 'Lora', serif;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-wedding-date {
+  margin: 35px 0;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.date-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.date-value {
+  font-size: 2rem;
+  font-weight: 600;
   color: var(--accent-color);
-  width: 25px;
-  text-align: center;
+  letter-spacing: 3px;
+}
+
+.hero-poem {
+  font-size: 1.1rem;
+  line-height: 2.1;
+  margin: 35px 0;
+  opacity: 0.86;
+  font-style: italic;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  padding: 20px 0 20px 30px;
+  font-family: 'Playfair Display', 'Lora', serif;
+  letter-spacing: 0.15px;
+  font-weight: 300;
+}
+
+.hero-poem::before {
+  content: '"';
+  font-size: 3rem;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: var(--accent-color);
+  opacity: 0.3;
+  font-family: 'Playfair Display', serif;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.hero-poem::after {
+  content: '"';
+  font-size: 1.5rem;
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  color: var(--accent-color);
+  opacity: 0.25;
+  font-family: 'Playfair Display', serif;
+  font-weight: 200;
+  line-height: 1;
 }
 
 .hero-message {
-  font-size: 1.2rem;
-  margin: 30px 0;
-  line-height: 1.8;
-  opacity: 0.9;
-  max-width: 500px;
+  font-size: 1.05rem;
+  margin: 35px 0 45px;
+  line-height: 2.1;
+  opacity: 0.86;
+  max-width: 600px;
+  font-family: 'Playfair Display', 'Lora', serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-actions {
@@ -240,16 +317,57 @@
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
+  .hero-text {
+    text-align: center;
   }
 
-  .hero-subtitle {
-    font-size: 1.1rem;
+  .hero-title {
+    font-size: 2.3rem;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .hero-title::after {
+    width: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-intro {
+    font-size: 1.05rem;
+    line-height: 1.95;
+    opacity: 0.85;
+    text-align: center;
+    padding: 0;
+  }
+
+  .date-value {
+    font-size: 1.6rem;
+  }
+
+  .hero-poem {
+    font-size: 1rem;
+    padding: 0;
+    line-height: 2;
+    opacity: 0.84;
+    text-align: center;
+  }
+
+  .hero-poem::before {
+    display: none;
+  }
+
+  .hero-poem::after {
+    display: none;
   }
 
   .hero-message {
-    font-size: 1rem;
+    font-size: 0.98rem;
+    line-height: 2;
+    opacity: 0.84;
+    text-align: center;
+    padding: 0;
   }
 
   .hero-actions {
@@ -274,17 +392,62 @@
 }
 
 @media (max-width: 480px) {
+  .hero-text {
+    text-align: center;
+    padding: 0;
+  }
+
   .hero-title {
     font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 12px;
   }
 
-  .hero-subtitle {
-    font-size: 1rem;
-    gap: 10px;
+  .hero-title::after {
+    width: 40px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .hero-subtitle i {
-    font-size: 1.2rem;
+  .hero-intro {
+    font-size: 0.98rem;
+    line-height: 1.9;
+    opacity: 0.82;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+
+  .date-value {
+    font-size: 1.4rem;
+  }
+
+  .hero-poem {
+    font-size: 0.95rem;
+    padding: 0;
+    line-height: 1.95;
+    opacity: 0.8;
+    text-align: center;
+    margin: 25px 0;
+  }
+
+  .hero-poem::before {
+    display: none;
+  }
+
+  .hero-poem::after {
+    display: none;
+  }
+
+  .hero-message {
+    font-size: 0.93rem;
+    line-height: 1.9;
+    opacity: 0.8;
+    text-align: center;
+    padding: 0;
+    margin: 25px 0 35px;
   }
 
   .hero-actions {

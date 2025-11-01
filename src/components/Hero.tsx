@@ -48,32 +48,28 @@ const Hero: React.FC<ComponentProps> = ({ data }) => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div className="hero-text" variants={itemVariants}>
-          <motion.h1
-            className="hero-title"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            {data.couple.groom.name} & {data.couple.bride.name}
-          </motion.h1>
+          {data.wedding.hero && (
+            <>
+              <motion.h1
+                className="hero-title"
+                variants={itemVariants}
+              >
+                {data.wedding.hero.title}
+              </motion.h1>
 
-          <motion.div className="hero-subtitle" variants={itemVariants}>
-            <i className={ICONS.CALENDAR}></i>
-            <span>{data.wedding.date}</span>
-          </motion.div>
+              <motion.p className="hero-intro" variants={itemVariants}>
+                {data.wedding.hero.intro}
+              </motion.p>
 
-          <motion.div className="hero-subtitle" variants={itemVariants}>
-            <i className={ICONS.CLOCK}></i>
-            <span>{data.wedding.time}</span>
-          </motion.div>
+              <motion.p className="hero-poem" variants={itemVariants}>
+                "{data.wedding.hero.poem}"
+              </motion.p>
 
-          <motion.div className="hero-subtitle" variants={itemVariants}>
-            <i className={ICONS.MAP_MARKER}></i>
-            <span>{data.wedding.location.name}</span>
-          </motion.div>
-
-          <motion.p className="hero-message" variants={itemVariants}>
-            {data.messages.welcome}
-          </motion.p>
+              <motion.p className="hero-message" variants={itemVariants}>
+                {data.wedding.hero.message}
+              </motion.p>
+            </>
+          )}
 
           <motion.div className="hero-actions" variants={itemVariants}>
             <motion.a

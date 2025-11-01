@@ -141,7 +141,7 @@ export const BREAKPOINTS = {
   MOBILE: '480px',
   TABLET: '768px',
   DESKTOP: '1024px',
-  LARGE: '1200px'
+  LARGE: '1600px'
 } as const;
 
 // Default Values

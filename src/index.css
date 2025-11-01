@@ -26,7 +26,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - using CSS variables from constants */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -36,35 +36,35 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: var(--primary-color, #D4AF37);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8941F;
+  background: var(--secondary-color, #8B4513);
 }
 
-/* Selection styles */
+/* Selection styles - using CSS variables from constants */
 ::selection {
-  background: #D4AF37;
+  background: var(--primary-color, #D4AF37);
   color: white;
 }
 
 ::-moz-selection {
-  background: #D4AF37;
+  background: var(--primary-color, #D4AF37);
   color: white;
 }
 
-/* Focus styles */
+/* Focus styles - using CSS variables from constants */
 *:focus {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid var(--primary-color, #D4AF37);
   outline-offset: 2px;
 }
 
-/* Button focus styles */
+/* Button focus styles - using CSS variables from constants */
 button:focus,
 a:focus {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid var(--primary-color, #D4AF37);
   outline-offset: 2px;
 }
 

@@ -42,7 +42,7 @@ const Header: React.FC<ComponentProps> = ({ data }) => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <i className={ICONS.HEART}></i>
-            <span>Thiệp Cưới</span>
+            <span>{data.header.title}</span>
           </motion.div>
           
           <nav className="nav">

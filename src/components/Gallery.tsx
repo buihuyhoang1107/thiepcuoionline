@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ANIMATION_VARIANTS, ICONS } from '../constants';
 import { GalleryProps } from '../types';
 import './Gallery.css';
 
@@ -17,28 +18,16 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
   const images = (data.images.gallery || []).map(toUrl);
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    ...ANIMATION_VARIANTS.container,
     visible: {
-      opacity: 1,
+      ...ANIMATION_VARIANTS.container.visible,
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.2
       }
     }
   };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
+  const itemVariants = ANIMATION_VARIANTS.item;
 
   const openLightbox = (index: number): void => {
     setSelectedImage(images[index]);
@@ -73,10 +62,9 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
           {/* Header */}
           <motion.div className="gallery-header" variants={itemVariants}>
             <div className="gallery-icon">
-              <i className="fas fa-images"></i>
+              <i className={ICONS.IMAGES}></i>
             </div>
-            <h2 className="gallery-title">Khoảnh Khắc Đẹp</h2>
-            <p className="gallery-subtitle">Những kỷ niệm đáng nhớ của chúng tôi</p>
+            <h2 className="gallery-title">Album Hình Cưới</h2>
             <div className="gallery-divider"></div>
           </motion.div>
 
@@ -101,7 +89,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                     }}
                   />
                   <div className="image-overlay">
-                    <i className="fas fa-search-plus"></i>
+                    <i className={ICONS.SEARCH_PLUS}></i>
                   </div>
                 </div>
               </motion.div>
@@ -111,7 +99,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
           {/* Empty state */}
           {images.length === 0 && (
             <motion.div className="empty-gallery" variants={itemVariants}>
-              <i className="fas fa-camera"></i>
+              <i className={ICONS.CAMERA}></i>
               <h3>Chưa có hình ảnh</h3>
               <p>Hình ảnh sẽ được cập nhật sớm nhất</p>
             </motion.div>
@@ -137,15 +125,15 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
               onClick={(e) => e.stopPropagation()}
             >
               <button className="lightbox-close" onClick={closeLightbox}>
-                <i className="fas fa-times"></i>
+                <i className={ICONS.TIMES}></i>
               </button>
               
               <button className="lightbox-prev" onClick={prevImage}>
-                <i className="fas fa-chevron-left"></i>
+                <i className={ICONS.CHEVRON_LEFT}></i>
               </button>
               
               <button className="lightbox-next" onClick={nextImage}>
-                <i className="fas fa-chevron-right"></i>
+                <i className={ICONS.CHEVRON_RIGHT}></i>
               </button>
               
               <img

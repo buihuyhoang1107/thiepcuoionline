@@ -6,16 +6,13 @@ export interface Couple {
   parent: string;
 }
 
-export interface WeddingLocation {
-  name: string;
-  address: string;
-  map: string;
-}
-
 export interface WeddingInfo {
-  date: string;
-  time: string;
-  location: WeddingLocation;
+  hero?: {
+    title: string;
+    intro: string;
+    poem: string;
+    message: string;
+  };
 }
 
 export interface Messages {
@@ -51,7 +48,23 @@ export interface Template {
   colors: Colors;
 }
 
+export interface WeddingEvent {
+  id: string;
+  title: string;
+  image: string;
+  date: string;
+  time: string;
+  location: string;
+  mapUrl?: string;
+}
+
 export interface WeddingData {
+  header: {
+    title: string;
+  };
+  quote: {
+    text: string;
+  };
   couple: {
     groom: Couple;
     bride: Couple;
@@ -63,6 +76,7 @@ export interface WeddingData {
     bride: BankingInfo;
   };
   images: Images;
+  events?: WeddingEvent[];
   template: string;
   colors: Colors;
 }

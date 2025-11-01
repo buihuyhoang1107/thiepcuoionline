@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { TEMPLATE_STYLES } from '../constants';
+import { BREAKPOINTS, TEMPLATE_STYLES } from '../constants';
 import { ComponentProps, TemplateType } from '../types';
 import Confetti from './Confetti';
 import Footer from './Footer';
@@ -32,7 +32,11 @@ const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
         '--accent-color': currentStyle.accent,
         '--text-color': currentStyle.text,
         '--background-color': currentStyle.background,
-        '--main-font': currentStyle.font
+        '--main-font': currentStyle.font,
+        '--breakpoint-mobile': BREAKPOINTS.MOBILE,
+        '--breakpoint-tablet': BREAKPOINTS.TABLET,
+        '--breakpoint-desktop': BREAKPOINTS.DESKTOP,
+        '--breakpoint-large': BREAKPOINTS.LARGE
       } as React.CSSProperties}
     >
       {showConfetti && <Confetti />}
@@ -45,9 +49,9 @@ const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
         transition={{ duration: 1 }}
       >
         <Hero data={data} />
+        <Gallery data={data} />
         <Invitation data={data} />
         <QRCode data={data} />
-        <Gallery data={data} />
       </motion.main>
       
       <Footer data={data} />

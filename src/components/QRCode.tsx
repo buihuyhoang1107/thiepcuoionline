@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ANIMATION_VARIANTS } from '../constants';
 import { ComponentProps } from '../types';
 import './QRCode.css';
 
@@ -13,34 +14,30 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
   const groomQR = `${process.env.PUBLIC_URL}/${data.banking.groom.qrCode}`;
   const brideQR = `${process.env.PUBLIC_URL}/${data.banking.bride.qrCode}`;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
+  const containerVariants = ANIMATION_VARIANTS.container;
+  const itemVariants = ANIMATION_VARIANTS.item;
 
   const copyToClipboard = (text: string): void => {
     navigator.clipboard.writeText(text).then(() => {
       alert('Đã sao chép số tài khoản!');
     });
+  };
+
+  // Get bank logo based on bank name
+  const getBankLogo = (bankName: string) => {
+    const bank = bankName.toLowerCase();
+    if (bank.includes('vietcombank') || bank.includes('vcb')) {
+      return 'Vietcombank';
+    } else if (bank.includes('mb') || bank.includes('mbbank')) {
+      return 'MB';
+    } else if (bank.includes('bidv')) {
+      return 'BIDV';
+    } else if (bank.includes('agribank')) {
+      return 'Agribank';
+    } else if (bank.includes('techcombank') || bank.includes('tcb')) {
+      return 'Techcombank';
+    }
+    return bankName;
   };
 
   return (
@@ -54,12 +51,7 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
         >
           {/* Header */}
           <motion.div className="qr-header" variants={itemVariants}>
-            <div className="qr-icon">
-              <i className="fas fa-qrcode"></i>
-            </div>
-            <h2 className="qr-title">Thông Tin Chuyển Khoản</h2>
-            <p className="qr-subtitle">Quét mã QR để chuyển khoản nhanh chóng</p>
-            <div className="qr-divider"></div>
+            <h2 className="qr-title">Hộp mừng cưới</h2>
           </motion.div>
 
           {/* QR Codes Grid */}
@@ -70,13 +62,9 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="card-header">
-                <div className="groom-icon">
-                  <i className="fas fa-male"></i>
-                </div>
-                <h3>Nhà Trai</h3>
-                <p className="groom-name">{data.couple.groom.fullName}</p>
-              </div>
+              <h3 className="card-title">Mừng cưới đến chú rể</h3>
+              
+              <div className="vietqr-label">VIETQR</div>
               
               <div className="qr-code-container">
                 {groomQR ? (
@@ -89,24 +77,29 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
                 )}
               </div>
               
+              <div className="bank-logos">
+                <span className="bank-logo">napas 247</span>
+                <span className="bank-logo">{getBankLogo(data.banking.groom.bank)}</span>
+              </div>
+              
               <div className="banking-info">
                 <div className="info-item">
-                  <i className="fas fa-university"></i>
-                  <span>{data.banking.groom.bank}</span>
+                  <span className="info-label">Ngân hàng:</span>
+                  <span className="info-value">{data.banking.groom.bank}</span>
                 </div>
                 <div className="info-item">
-                  <i className="fas fa-credit-card"></i>
+                  <span className="info-label">Tên tài khoản:</span>
+                  <span className="info-value">{data.banking.groom.accountName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Số tài khoản:</span>
                   <span 
-                    className="account-number"
+                    className="info-value account-number"
                     onClick={() => copyToClipboard(data.banking.groom.accountNumber)}
                     title="Click để sao chép"
                   >
                     {data.banking.groom.accountNumber}
                   </span>
-                </div>
-                <div className="info-item">
-                  <i className="fas fa-user"></i>
-                  <span>{data.banking.groom.accountName}</span>
                 </div>
               </div>
             </motion.div>
@@ -117,13 +110,9 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="card-header">
-                <div className="bride-icon">
-                  <i className="fas fa-female"></i>
-                </div>
-                <h3>Nhà Gái</h3>
-                <p className="bride-name">{data.couple.bride.fullName}</p>
-              </div>
+              <h3 className="card-title">Mừng cưới đến cô dâu</h3>
+              
+              <div className="vietqr-label">VIETQR</div>
               
               <div className="qr-code-container">
                 {brideQR ? (
@@ -136,73 +125,32 @@ const QRCode: React.FC<ComponentProps> = ({ data }) => {
                 )}
               </div>
               
+              <div className="bank-logos">
+                <span className="bank-logo">napas 247</span>
+                <span className="bank-logo">{getBankLogo(data.banking.bride.bank)}</span>
+              </div>
+              
               <div className="banking-info">
                 <div className="info-item">
-                  <i className="fas fa-university"></i>
-                  <span>{data.banking.bride.bank}</span>
+                  <span className="info-label">Ngân hàng:</span>
+                  <span className="info-value">{data.banking.bride.bank}</span>
                 </div>
                 <div className="info-item">
-                  <i className="fas fa-credit-card"></i>
+                  <span className="info-label">Tên tài khoản:</span>
+                  <span className="info-value">{data.banking.bride.accountName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Số tài khoản:</span>
                   <span 
-                    className="account-number"
+                    className="info-value account-number"
                     onClick={() => copyToClipboard(data.banking.bride.accountNumber)}
                     title="Click để sao chép"
                   >
                     {data.banking.bride.accountNumber}
                   </span>
                 </div>
-                <div className="info-item">
-                  <i className="fas fa-user"></i>
-                  <span>{data.banking.bride.accountName}</span>
-                </div>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Instructions */}
-          <motion.div className="qr-instructions" variants={itemVariants}>
-            <h3>Cách sử dụng</h3>
-            <div className="instructions-grid">
-              <div className="instruction-item">
-                <div className="instruction-icon">
-                  <i className="fas fa-mobile-alt"></i>
-                </div>
-                <div className="instruction-text">
-                  <h4>Mở ứng dụng ngân hàng</h4>
-                  <p>Mở ứng dụng ngân hàng trên điện thoại của bạn</p>
-                </div>
-              </div>
-              
-              <div className="instruction-item">
-                <div className="instruction-icon">
-                  <i className="fas fa-qrcode"></i>
-                </div>
-                <div className="instruction-text">
-                  <h4>Quét mã QR</h4>
-                  <p>Chọn chức năng quét QR và quét mã bên trên</p>
-                </div>
-              </div>
-              
-              <div className="instruction-item">
-                <div className="instruction-icon">
-                  <i className="fas fa-money-bill-wave"></i>
-                </div>
-                <div className="instruction-text">
-                  <h4>Nhập số tiền</h4>
-                  <p>Nhập số tiền và nội dung chuyển khoản</p>
-                </div>
-              </div>
-              
-              <div className="instruction-item">
-                <div className="instruction-icon">
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <div className="instruction-text">
-                  <h4>Xác nhận</h4>
-                  <p>Xác nhận và hoàn tất giao dịch</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </div>

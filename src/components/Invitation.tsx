@@ -1,6 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { ANIMATION_VARIANTS } from '../constants';
 import { ComponentProps } from '../types';
 import './Invitation.css';
 
@@ -10,32 +11,53 @@ const Invitation: React.FC<ComponentProps> = ({ data }) => {
     triggerOnce: true
   });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+  const containerVariants = ANIMATION_VARIANTS.container;
+  const itemVariants = ANIMATION_VARIANTS.item;
+
+  const handleAddToCalendar = (event: any) => {
+    // Format date for calendar (YYYYMMDDTHHmmss)
+    const [day, month, year] = event.date.split('/');
+    const [hours, minutes] = event.time.split(':');
+    const dateStr = `${year}${month}${day}T${hours}${minutes}00`;
+    
+    // Create calendar URL
+    const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${dateStr}/${dateStr}&details=${encodeURIComponent(event.location)}&location=${encodeURIComponent(event.location)}`;
+    
+    window.open(calendarUrl, '_blank');
+  };
+
+  const handleViewMap = (event: any) => {
+    if (event.mapUrl) {
+      window.open(event.mapUrl, '_blank');
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
+  const headerImage = `${process.env.PUBLIC_URL}/${data.images.mainBackground}`;
 
   return (
     <section id="invitation" className="invitation" ref={ref}>
+      <div className="invitation-header-section">
+        <div 
+          className="header-background"
+          style={{ backgroundImage: `url(${headerImage})` }}
+        >
+          <div className="header-overlay"></div>
+          <motion.div
+            className="header-content"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            <motion.h1 className="header-title" variants={itemVariants}>
+              Sự Kiện Cưới
+            </motion.h1>
+            <motion.p className="header-subtitle" variants={itemVariants}>
+            {data.quote.text}
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
+
       <div className="container">
         <motion.div
           className="invitation-content"
@@ -43,105 +65,62 @@ const Invitation: React.FC<ComponentProps> = ({ data }) => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {/* Header */}
-          <motion.div className="invitation-header" variants={itemVariants}>
-            <div className="invitation-icon">
-              <i className="fas fa-heart"></i>
+          {data.events && data.events.length > 0 ? (
+            <div className="events-grid">
+              {data.events.map((event) => {
+                const eventImage = `${process.env.PUBLIC_URL}/${event.image}`;
+                return (
+                  <motion.div
+                    key={event.id}
+                    className="event-card"
+                    variants={itemVariants}
+                    whileHover={{ y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <h3 className="event-title">{event.title}</h3>
+                    <div className="event-divider"></div>
+                    <div className="event-image-container">
+                      <img 
+                        src={eventImage} 
+                        alt={event.title}
+                        className="event-image"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `${process.env.PUBLIC_URL}/images/gallery_big.jpg`;
+                        }}
+                      />
+                    </div>
+                    <div className="event-details">
+                      <div className="event-datetime">
+                        {event.time} {event.date}
+                      </div>
+                      <div className="event-location">
+                        {event.location}
+                      </div>
+                    </div>
+                    <div className="event-actions">
+                      <button 
+                        className="action-btn add-calendar"
+                        onClick={() => handleAddToCalendar(event)}
+                      >
+                        <i className="fas fa-calendar-alt"></i>
+                        <span>Thêm vào lịch</span>
+                      </button>
+                      <button 
+                        className="action-btn view-map"
+                        onClick={() => handleViewMap(event)}
+                      >
+                        <span>Xem bản đồ</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-            <h2 className="invitation-title">Thiệp Mời Cưới</h2>
-            <div className="invitation-divider"></div>
-          </motion.div>
-
-          {/* Main Invitation Card */}
-          <motion.div className="invitation-card" variants={itemVariants}>
-            <div className="card-header">
-              <motion.h3 
-                className="couple-names"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {data.couple.groom.name} & {data.couple.bride.name}
-              </motion.h3>
-              <div className="wedding-date">
-                <i className="fas fa-calendar-alt"></i>
-                <span>{data.wedding.date}</span>
-              </div>
+          ) : (
+            <div className="no-events">
+              <p>Chưa có thông tin sự kiện</p>
             </div>
-
-            <div className="card-body">
-              <motion.p 
-                className="invitation-message"
-                variants={itemVariants}
-              >
-                {data.messages.invitation}
-              </motion.p>
-
-              <motion.div 
-                className="wedding-details"
-                variants={itemVariants}
-              >
-                <div className="detail-item">
-                  <div className="detail-icon">
-                    <i className="fas fa-clock"></i>
-                  </div>
-                  <div className="detail-content">
-                    <h4>Giờ tổ chức</h4>
-                    <p>{data.wedding.time}</p>
-                  </div>
-                </div>
-
-                <div className="detail-item">
-                  <div className="detail-icon">
-                    <i className="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div className="detail-content">
-                    <h4>Địa điểm</h4>
-                    <p>{data.wedding.location.name}</p>
-                    <p className="address">{data.wedding.location.address}</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="parents-info"
-                variants={itemVariants}
-              >
-                <div className="parent-group">
-                  <h4>Nhà trai</h4>
-                  <p>{data.couple.groom.parent}</p>
-                  <p className="groom-name">{data.couple.groom.fullName}</p>
-                </div>
-                
-                <div className="parent-divider">
-                  <i className="fas fa-heart"></i>
-                </div>
-                
-                <div className="parent-group">
-                  <h4>Nhà gái</h4>
-                  <p>{data.couple.bride.parent}</p>
-                  <p className="bride-name">{data.couple.bride.fullName}</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="thank-you-message"
-                variants={itemVariants}
-              >
-                <p>{data.messages.thankYou}</p>
-              </motion.div>
-            </div>
-
-            <div className="card-footer">
-              <motion.div 
-                className="decorative-elements"
-                variants={itemVariants}
-              >
-                <div className="decorative-line"></div>
-                <i className="fas fa-heart"></i>
-                <div className="decorative-line"></div>
-              </motion.div>
-            </div>
-          </motion.div>
+          )}
         </motion.div>
       </div>
     </section>

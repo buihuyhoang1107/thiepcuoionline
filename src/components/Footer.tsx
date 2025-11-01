@@ -24,7 +24,7 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
                 <span>Thiệp Cưới Online</span>
               </div>
               <p className="footer-description">
-                Chia sẻ niềm vui ngày cưới với những người thân yêu
+                {data.messages.welcome}
               </p>
               <div className="social-links">
                 <motion.a 
@@ -62,23 +62,6 @@ const Footer: React.FC<ComponentProps> = ({ data }) => {
               </div>
             </div>
 
-            <div className="footer-section">
-              <h4 className="footer-title">Thông tin cưới</h4>
-              <div className="footer-info">
-                <div className="info-item">
-                  <i className="fas fa-calendar-alt"></i>
-                  <span>{data.wedding.date}</span>
-                </div>
-                <div className="info-item">
-                  <i className="fas fa-clock"></i>
-                  <span>{data.wedding.time}</span>
-                </div>
-                <div className="info-item">
-                  <i className="fas fa-map-marker-alt"></i>
-                  <span>{data.wedding.location.name}</span>
-                </div>
-              </div>
-            </div>
 
             <div className="footer-section">
               <h4 className="footer-title">Cặp đôi</h4>
