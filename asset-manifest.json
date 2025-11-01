@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/thiepcuoionline/static/css/main.16c2deea.css",
-    "main.js": "/thiepcuoionline/static/js/main.09216352.js",
+    "main.js": "/thiepcuoionline/static/js/main.de88c389.js",
     "index.html": "/thiepcuoionline/index.html",
     "main.16c2deea.css.map": "/thiepcuoionline/static/css/main.16c2deea.css.map",
-    "main.09216352.js.map": "/thiepcuoionline/static/js/main.09216352.js.map"
+    "main.de88c389.js.map": "/thiepcuoionline/static/js/main.de88c389.js.map"
   },
   "entrypoints": [
     "static/css/main.16c2deea.css",
-    "static/js/main.09216352.js"
+    "static/js/main.de88c389.js"
   ]
 }
