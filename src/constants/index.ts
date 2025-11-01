@@ -110,7 +110,8 @@ export const ICONS = {
   ARROW_UP: 'fas fa-arrow-up',
   PHONE: 'fas fa-phone',
   GLOBE: 'fas fa-globe',
-  BARS: 'fas fa-bars'
+  BARS: 'fas fa-bars',
+  BIRTHDAY_CAKE: 'fas fa-birthday-cake'
 } as const;
 
 // Social Media Icons

@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { BREAKPOINTS, TEMPLATE_STYLES } from '../constants';
-import { ComponentProps, TemplateType } from '../types';
-import Confetti from './Confetti';
-import Footer from './Footer';
-import Gallery from './Gallery';
-import Header from './Header';
-import Hero from './Hero';
-import Invitation from './Invitation';
-import QRCode from './QRCode';
+import { BREAKPOINTS, TEMPLATE_STYLES } from '../../constants';
+import { ComponentProps, TemplateType } from '../../types';
+import Confetti from '../../components/Confetti';
+import Footer from '../../components/Footer';
+import Gallery from '../../components/Gallery';
+import Header from '../../components/Header';
+import Hero from '../../components/Hero';
+import Invitation from '../../components/Invitation';
+import QRCode from '../../components/QRCode';
 import './WeddingInvitation.css';
 
 const WeddingInvitation: React.FC<ComponentProps> = ({ data }) => {
